@@ -15,7 +15,7 @@ struct User {
     var company: String
     var email: String
     var about: String
-    var registered: Date
+    var registered: String  // change to date later
     var tags: [String]
 }
 
@@ -25,7 +25,10 @@ struct Friend {
 }
 
 struct ContentView: View {
+    // import JSON
+    
     var body: some View {
+        // create list view to display JSON
         Text("Hello, world!")
             .padding()
     }
