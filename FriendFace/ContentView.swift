@@ -29,14 +29,15 @@ struct ContentView: View {
     @State var users = [User]()
     
     var body: some View {
-        // create list view to display JSON
         NavigationView {
             List(users, id: \.id) { item in
-                VStack(alignment: .leading) {
-                    Text(item.name)
-                        .font(.headline)
-                    
-                    Text(item.company)
+                NavigationLink(destination: DetailView(user: item)) {
+                    VStack(alignment: .leading) {
+                        Text(item.name)
+                            .font(.headline)
+                        
+                        Text(item.company)
+                    }
                 }
             }
         }
