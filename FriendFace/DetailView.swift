@@ -10,6 +10,7 @@ import SwiftUI
 struct DetailView: View {
     let user: User
     let friends: [User]
+    let users: [User]
     
     var body: some View {
         VStack {
@@ -26,12 +27,14 @@ struct DetailView: View {
             NavigationView {
                 List(friends, id: \.id) { item in
                     // need to look up id off of User and pass to DetailViews
-//                    NavigationLink(destination: DetailView(user: item)) {
+                    NavigationLink(destination: DetailView(user: item,
+                                                           friends: findFriends(friends: item.friends, users: self.users),
+                                                           users: self.users)) {
                         Text(item.name)
                             .font(.headline)
                         Text(item.company)
                             .foregroundColor(.secondary)
-//                    }
+                    }
                 }
                 .navigationTitle("\(user.name)'s friends")  // pull first name only
             }
@@ -39,9 +42,10 @@ struct DetailView: View {
         .padding(.horizontal)
     }
     
-    init(user: User, friends: [User]) {
+    init(user: User, friends: [User], users: [User]) {
         self.user = user
         self.friends = friends
+        self.users = users
     }
 }
 
@@ -60,6 +64,6 @@ struct DetailView_Previews: PreviewProvider {
                            )
     
     static var previews: some View {
-        DetailView(user: user, friends: [user])
+        DetailView(user: user, friends: [user], users: [user])
     }
 }

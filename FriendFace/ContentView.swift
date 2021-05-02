@@ -13,7 +13,9 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List(users, id: \.id) { item in
-                NavigationLink(destination: DetailView(user: item, friends: findFriends(friends: item.friends, users: self.users))) {
+                NavigationLink(destination: DetailView(user: item,
+                                                       friends: findFriends(friends: item.friends, users: self.users),
+                                                       users: self.users)) {
                     VStack(alignment: .leading) {
                         Text(item.name)
                             .font(.headline)
