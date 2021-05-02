@@ -13,11 +13,23 @@ struct DetailView: View {
     var body: some View {
         VStack {
             Text(user.name)
-            Text(String(user.age))
+                .font(.headline)
             Text(user.company)
-            Text("Friends:")
-            List(user.friends, id: \.id) { item in
-                Text(item.name)
+                .font(.callout)
+            Text("Age: " + String(user.age))
+                .font(.caption)
+            Text(user.about)
+            Text("Friends")
+                .font(.headline)
+            Text("Member since \(user.registered)")
+                .font(.callout)
+            NavigationView {
+                List(user.friends, id: \.id) { item in
+                    // need to look up id off of User and pass to DetailViews
+//                    NavigationLink(destination: DetailView(user: item)) {
+                        Text(item.name)
+//                    }
+                }
             }
         }
     }
