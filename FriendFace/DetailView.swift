@@ -24,10 +24,13 @@ struct DetailView: View {
             Text("Member since \(user.registered)")
                 .font(.footnote)
             NavigationView {
-                List(user.friends, id: \.id) { item in
+                List(friends, id: \.id) { item in
                     // need to look up id off of User and pass to DetailViews
 //                    NavigationLink(destination: DetailView(user: item)) {
                         Text(item.name)
+                            .font(.headline)
+                        Text(item.company)
+                            .foregroundColor(.secondary)
 //                    }
                 }
                 .navigationTitle("\(user.name)'s friends")  // pull first name only

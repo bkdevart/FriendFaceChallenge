@@ -7,31 +7,13 @@
 
 import SwiftUI
 
-struct User: Codable {
-    var id: String
-    var isActive: Bool
-    var name: String
-    var age: Int
-    var company: String
-    var email: String
-    var about: String
-    var registered: String  // change to date later
-    var tags: [String]
-    var friends: [Friend]
-}
-
-struct Friend: Codable {
-    var id: String
-    var name: String
-}
-
 struct ContentView: View {
     @State var users = [User]()
     
     var body: some View {
         NavigationView {
             List(users, id: \.id) { item in
-                NavigationLink(destination: DetailView(user: item, friends: findFriends(friends: item.friends))) {
+                NavigationLink(destination: DetailView(user: item, friends: findFriends(friends: item.friends, users: self.users))) {
                     VStack(alignment: .leading) {
                         Text(item.name)
                             .font(.headline)
@@ -50,7 +32,7 @@ struct ContentView: View {
             print("Invalid URL")
             return
         }
-        
+
         let request = URLRequest(url: url)
 
         URLSession.shared.dataTask(with: request) { data, response, error in
@@ -66,21 +48,6 @@ struct ContentView: View {
             print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
             print(request)
         }.resume()
-    }
-    
-    func findFriends(friends: [Friend]) -> [User] {
-        // return a list of User items representing this user's friends
-        var userFriends = [User]()
-        
-        for user in friends {
-            if let match = users.first(where: { $0.id == user.id}) {
-                userFriends.append(match)
-            } else {
-                fatalError("Missing \(user.name)")
-            }
-        }
-        
-        return userFriends
     }
 }
 

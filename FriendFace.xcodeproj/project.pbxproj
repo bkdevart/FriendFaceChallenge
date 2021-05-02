@@ -15,6 +15,7 @@
 		CAC8DCA1263CF93B001B8818 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAC8DCA0263CF93B001B8818 /* Preview Assets.xcassets */; };
 		CAC8DCA4263CF93B001B8818 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC8DCA2263CF93B001B8818 /* LaunchScreen.storyboard */; };
 		CAC8DCAC263E0593001B8818 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC8DCAB263E0593001B8818 /* DetailView.swift */; };
+		CAC8DCAF263E4E50001B8818 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC8DCAE263E4E50001B8818 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		CAC8DCA3263CF93B001B8818 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CAC8DCA5263CF93B001B8818 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAC8DCAB263E0593001B8818 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		CAC8DCAE263E4E50001B8818 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				CAC8DC94263CF93A001B8818 /* AppDelegate.swift */,
 				CAC8DC96263CF93A001B8818 /* SceneDelegate.swift */,
+				CAC8DCAE263E4E50001B8818 /* User.swift */,
 				CAC8DC98263CF93A001B8818 /* ContentView.swift */,
 				CAC8DCAB263E0593001B8818 /* DetailView.swift */,
 				CAC8DC9D263CF93B001B8818 /* Assets.xcassets */,
@@ -152,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAC8DC95263CF93A001B8818 /* AppDelegate.swift in Sources */,
+				CAC8DCAF263E4E50001B8818 /* User.swift in Sources */,
 				CAC8DC97263CF93A001B8818 /* SceneDelegate.swift in Sources */,
 				CAC8DC9C263CF93A001B8818 /* FriendFace.xcdatamodeld in Sources */,
 				CAC8DCAC263E0593001B8818 /* DetailView.swift in Sources */,
