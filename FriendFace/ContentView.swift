@@ -35,11 +35,12 @@ struct ContentView: View {
                     VStack(alignment: .leading) {
                         Text(item.name)
                             .font(.headline)
-                        
                         Text(item.company)
+                            .foregroundColor(.secondary)
                     }
                 }
             }
+            .navigationTitle("FriendFace Home")
         }
         .onAppear(perform: loadData)
     }

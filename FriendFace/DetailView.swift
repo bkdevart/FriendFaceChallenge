@@ -13,16 +13,15 @@ struct DetailView: View {
     var body: some View {
         VStack {
             Text(user.name)
-                .font(.headline)
+                .font(.largeTitle)
+                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
             Text(user.company)
-                .font(.callout)
+                .foregroundColor(.secondary)
             Text("Age: " + String(user.age))
                 .font(.caption)
             Text(user.about)
-            Text("Friends")
-                .font(.headline)
             Text("Member since \(user.registered)")
-                .font(.callout)
+                .font(.footnote)
             NavigationView {
                 List(user.friends, id: \.id) { item in
                     // need to look up id off of User and pass to DetailViews
@@ -30,8 +29,10 @@ struct DetailView: View {
                         Text(item.name)
 //                    }
                 }
+                .navigationTitle("\(user.name)'s friends")  // pull first name only
             }
         }
+        .padding(.horizontal)
     }
     
     init(user: User) {
