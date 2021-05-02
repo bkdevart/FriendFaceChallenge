@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DetailView: View {
     let user: User
+    let friends: [User]
     
     var body: some View {
         VStack {
@@ -35,8 +36,9 @@ struct DetailView: View {
         .padding(.horizontal)
     }
     
-    init(user: User) {
+    init(user: User, friends: [User]) {
         self.user = user
+        self.friends = friends
     }
 }
 
@@ -55,6 +57,6 @@ struct DetailView_Previews: PreviewProvider {
                            )
     
     static var previews: some View {
-        DetailView(user: user)
+        DetailView(user: user, friends: [user])
     }
 }

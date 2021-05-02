@@ -31,7 +31,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List(users, id: \.id) { item in
-                NavigationLink(destination: DetailView(user: item)) {
+                NavigationLink(destination: DetailView(user: item, friends: findFriends(friends: item.friends))) {
                     VStack(alignment: .leading) {
                         Text(item.name)
                             .font(.headline)
@@ -55,7 +55,6 @@ struct ContentView: View {
 
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
-//                let jsonData = jsonString.data(using: .utf8)!
                 if let decodedResponse = try?JSONDecoder().decode([User].self, from: data) {
                     DispatchQueue.main.async {
                         self.users = decodedResponse
@@ -67,6 +66,21 @@ struct ContentView: View {
             print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
             print(request)
         }.resume()
+    }
+    
+    func findFriends(friends: [Friend]) -> [User] {
+        // return a list of User items representing this user's friends
+        var userFriends = [User]()
+        
+        for user in friends {
+            if let match = users.first(where: { $0.id == user.id}) {
+                userFriends.append(match)
+            } else {
+                fatalError("Missing \(user.name)")
+            }
+        }
+        
+        return userFriends
     }
 }
 
