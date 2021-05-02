@@ -8,24 +8,26 @@
 import Foundation
 
 var users = [User]()
+@Environment(\.managedObjectContext) var moc
+@FetchRequest(entity: User.entity(), sortDescriptors: []) var users: FetchedResults<User>
 
-struct User: Codable {
-    var id: String
-    var isActive: Bool
-    var name: String
-    var age: Int
-    var company: String
-    var email: String
-    var about: String
-    var registered: String  // change to date later
-    var tags: [String]
-    var friends: [Friend]
-}
-
-struct Friend: Codable {
-    var id: String
-    var name: String
-}
+//struct User: Codable {
+//    var id: String
+//    var isActive: Bool
+//    var name: String
+//    var age: Int
+//    var company: String
+//    var email: String
+//    var about: String
+//    var registered: String  // change to date later
+//    var tags: [String]
+//    var friends: [Friend]
+//}
+//
+//struct Friend: Codable {
+//    var id: String
+//    var name: String
+//}
 
 func findFriends(friends: [Friend], users: [User]) -> [User] {
     // return a list of User items representing this user's friends
