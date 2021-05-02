@@ -27,31 +27,6 @@ struct Friend: Codable {
     var name: String
 }
 
-//func loadData() -> [User] {
-//    guard let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json") else {
-//        print("Invalid URL")
-//        return [User]()
-//    }
-//
-//    let request = URLRequest(url: url)
-//
-//    URLSession.shared.dataTask(with: request) { data, response, error in
-//        if let data = data {
-//            if let decodedResponse = try?JSONDecoder().decode([User].self, from: data) {
-//                DispatchQueue.main.async {
-//                    users = decodedResponse
-//                }
-//                print("Results returned")
-//                return
-//            }
-//        }
-//        print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
-//        print(request)
-//    }.resume()
-//    
-//    return users
-//}
-
 func findFriends(friends: [Friend], users: [User]) -> [User] {
     // return a list of User items representing this user's friends
     var userFriends = [User]()

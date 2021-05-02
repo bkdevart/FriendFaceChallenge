@@ -12,6 +12,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
+            
             List(users, id: \.id) { item in
                 NavigationLink(destination: DetailView(user: item,
                                                        friends: findFriends(friends: item.friends, users: self.users),
