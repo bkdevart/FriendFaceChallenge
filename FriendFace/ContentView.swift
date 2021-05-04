@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var users = [User]()
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(entity: User.entity(), sortDescriptors: []) var users: FetchedResults<User>
+    // project 11 part 1 (last video), 11 part 2 (creating books), 
+//    @State var users = [User]()
     
     var body: some View {
         NavigationView {

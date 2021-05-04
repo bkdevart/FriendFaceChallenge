@@ -10,7 +10,7 @@ import SwiftUI
 struct DetailView: View {
     let user: User
     let friends: [User]
-    let users: [User]
+    let users: [User]  // make moc?
     
     var body: some View {
         VStack {

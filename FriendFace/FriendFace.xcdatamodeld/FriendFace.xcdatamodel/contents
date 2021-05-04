@@ -1,23 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20E232" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Friend" representedClassName="Friend" syncable="YES" codeGenerationType="class">
+    <entity name="Friend" representedClassName="Friend" parentEntity="User" syncable="YES">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="user" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="friends" inverseEntity="User">
+            <userInfo>
+                <entry key="key" value="id"/>
+            </userInfo>
+        </relationship>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
-    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+    <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String"/>
         <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="company" optional="YES" attributeType="String"/>
         <attribute name="email" optional="YES" attributeType="String"/>
-        <attribute name="friends" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="registered" optional="YES" attributeType="String"/>
         <attribute name="tags" optional="YES" attributeType="String"/>
+        <relationship name="friends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Friend" inverseName="user" inverseEntity="Friend">
+            <userInfo>
+                <entry key="key" value="friends"/>
+            </userInfo>
+        </relationship>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="Friend" positionX="-54" positionY="0" width="128" height="59"/>
+        <element name="Friend" positionX="-54" positionY="0" width="128" height="74"/>
         <element name="User" positionX="-63" positionY="-9" width="128" height="179"/>
     </elements>
 </model>

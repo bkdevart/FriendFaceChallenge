@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA2B9CBC2640FC5C001AF0BB /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2B9CB82640FC5C001AF0BB /* User+CoreDataClass.swift */; };
+		CA2B9CBD2640FC5C001AF0BB /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2B9CB92640FC5C001AF0BB /* User+CoreDataProperties.swift */; };
+		CA2B9CBE2640FC5C001AF0BB /* Friend+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2B9CBA2640FC5C001AF0BB /* Friend+CoreDataClass.swift */; };
+		CA2B9CBF2640FC5C001AF0BB /* Friend+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2B9CBB2640FC5C001AF0BB /* Friend+CoreDataProperties.swift */; };
 		CAC8DC95263CF93A001B8818 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC8DC94263CF93A001B8818 /* AppDelegate.swift */; };
 		CAC8DC97263CF93A001B8818 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC8DC96263CF93A001B8818 /* SceneDelegate.swift */; };
 		CAC8DC99263CF93A001B8818 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC8DC98263CF93A001B8818 /* ContentView.swift */; };
@@ -19,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA2B9CB82640FC5C001AF0BB /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "User+CoreDataClass.swift"; path = "FriendFace/User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CA2B9CB92640FC5C001AF0BB /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "User+CoreDataProperties.swift"; path = "FriendFace/User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CA2B9CBA2640FC5C001AF0BB /* Friend+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Friend+CoreDataClass.swift"; path = "FriendFace/Friend+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CA2B9CBB2640FC5C001AF0BB /* Friend+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Friend+CoreDataProperties.swift"; path = "FriendFace/Friend+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CAC8DC91263CF93A001B8818 /* FriendFace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendFace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAC8DC94263CF93A001B8818 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAC8DC96263CF93A001B8818 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +54,10 @@
 		CAC8DC88263CF93A001B8818 = {
 			isa = PBXGroup;
 			children = (
+				CA2B9CB82640FC5C001AF0BB /* User+CoreDataClass.swift */,
+				CA2B9CB92640FC5C001AF0BB /* User+CoreDataProperties.swift */,
+				CA2B9CBA2640FC5C001AF0BB /* Friend+CoreDataClass.swift */,
+				CA2B9CBB2640FC5C001AF0BB /* Friend+CoreDataProperties.swift */,
 				CAC8DC93263CF93A001B8818 /* FriendFace */,
 				CAC8DC92263CF93A001B8818 /* Products */,
 			);
@@ -156,10 +168,14 @@
 			files = (
 				CAC8DC95263CF93A001B8818 /* AppDelegate.swift in Sources */,
 				CAC8DCAF263E4E50001B8818 /* User.swift in Sources */,
+				CA2B9CBD2640FC5C001AF0BB /* User+CoreDataProperties.swift in Sources */,
 				CAC8DC97263CF93A001B8818 /* SceneDelegate.swift in Sources */,
+				CA2B9CBE2640FC5C001AF0BB /* Friend+CoreDataClass.swift in Sources */,
 				CAC8DC9C263CF93A001B8818 /* FriendFace.xcdatamodeld in Sources */,
 				CAC8DCAC263E0593001B8818 /* DetailView.swift in Sources */,
+				CA2B9CBF2640FC5C001AF0BB /* Friend+CoreDataProperties.swift in Sources */,
 				CAC8DC99263CF93A001B8818 /* ContentView.swift in Sources */,
+				CA2B9CBC2640FC5C001AF0BB /* User+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

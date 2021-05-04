@@ -8,8 +8,6 @@
 import Foundation
 
 var users = [User]()
-@Environment(\.managedObjectContext) var moc
-@FetchRequest(entity: User.entity(), sortDescriptors: []) var users: FetchedResults<User>
 
 //struct User: Codable {
 //    var id: String
