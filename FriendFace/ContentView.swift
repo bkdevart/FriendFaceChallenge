@@ -55,6 +55,21 @@ struct ContentView: View {
             print(request)
         }.resume()
     }
+    
+    func findFriends(friends: [Friend], users: [User]) -> [User] {
+        // return a list of User items representing this user's friends
+        var userFriends = [User]()
+        
+        for user in friends {
+            if let match = users.first(where: { $0.id == user.id}) {
+                userFriends.append(match)
+            } else {
+                fatalError("Missing \(user.name)")
+            }
+        }
+        
+        return userFriends
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
