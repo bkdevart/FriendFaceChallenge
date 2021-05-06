@@ -10,7 +10,6 @@ import SwiftUI
 struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: User.entity(), sortDescriptors: []) var users: FetchedResults<User>
-    // project 11 part 1 (last video), 11 part 2 (creating books), 
 //    @State var users = [User]()
     
     var body: some View {
@@ -18,12 +17,11 @@ struct ContentView: View {
             
             List(users, id: \.id) { item in
                 NavigationLink(destination: DetailView(user: item,
-                                                       friends: findFriends(friends: item.friends, users: self.users),
-                                                       users: self.users)) {
+                                                       friends: findFriends(friends: item.friendsArray))) {
                     VStack(alignment: .leading) {
-                        Text(item.name)
+                        Text(item.wrappedName)
                             .font(.headline)
-                        Text(item.company)
+                        Text(item.wrappedCompany)
                             .foregroundColor(.secondary)
                     }
                 }
@@ -56,7 +54,7 @@ struct ContentView: View {
         }.resume()
     }
     
-    func findFriends(friends: [Friend], users: [User]) -> [User] {
+    func findFriends(friends: [Friend]) -> [User] {
         // return a list of User items representing this user's friends
         var userFriends = [User]()
         
@@ -64,7 +62,7 @@ struct ContentView: View {
             if let match = users.first(where: { $0.id == user.id}) {
                 userFriends.append(match)
             } else {
-                fatalError("Missing \(user.name)")
+                fatalError("Missing \(user.wrappedName)")
             }
         }
         

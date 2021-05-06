@@ -2,7 +2,7 @@
 //  Friend+CoreDataProperties.swift
 //  FriendFace
 //
-//  Created by Brandon Knox on 5/4/21.
+//  Created by Brandon Knox on 5/5/21.
 //
 //
 
@@ -16,8 +16,8 @@ extension Friend {
         return NSFetchRequest<Friend>(entityName: "Friend")
     }
 
-//    @NSManaged public var id: String?
-//    @NSManaged public var name: String?
+    @NSManaged public var friendId: UUID?
+    @NSManaged public var friendName: String?
     @NSManaged public var user: NSSet?
     
     public var userArray: [User] {

@@ -8,62 +8,79 @@
 import SwiftUI
 
 struct DetailView: View {
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(entity: User.entity(), sortDescriptors: []) var users: FetchedResults<User>
+    
     let user: User
     let friends: [User]
-    let users: [User]  // make moc?
+//    let users: [User]  // make moc?
     
     var body: some View {
         VStack {
-            Text(user.name)
+            Text(user.wrappedName)
                 .font(.largeTitle)
                 .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-            Text(user.company)
+            Text(user.wrappedCompany)
                 .foregroundColor(.secondary)
             Text("Age: " + String(user.age))
                 .font(.caption)
-            Text(user.about)
-            Text("Member since \(user.registered)")
+            Text(user.wrappedAbout)
+            Text("Member since \(user.wrappedRegistered)")
                 .font(.footnote)
-            NavigationView {
-                List(friends, id: \.id) { item in
-                    // need to look up id off of User and pass to DetailViews
-                    NavigationLink(destination: DetailView(user: item,
-                                                           friends: findFriends(friends: item.friends, users: self.users),
-                                                           users: self.users)) {
-                        Text(item.name)
-                            .font(.headline)
-                        Text(item.company)
-                            .foregroundColor(.secondary)
-                    }
-                }
-                .navigationTitle("\(user.name)'s friends")  // pull first name only
-            }
+//            NavigationView {
+//                List(friends, id: \.id) { item in
+//                    // need to look up id off of User and pass to DetailViews
+//                    NavigationLink(destination: DetailView(user: item,
+//                                                           friends: findFriends(friends: item.friendsArray))) {
+//                        Text(item.name)
+//                            .font(.headline)
+//                        Text(item.company)
+//                            .foregroundColor(.secondary)
+//                    }
+//                }
+//                .navigationTitle("\(user.name)'s friends")  // pull first name only
+//            }
         }
         .padding(.horizontal)
     }
     
-    init(user: User, friends: [User], users: [User]) {
+//    func findFriends(friends: [Friend]) -> [User] {
+//        // return a list of User items representing this user's friends
+//        var userFriends = [User]()
+//
+//        for user in friends {
+//            if let match = users.first(where: { $0.id == user.id}) {
+//                userFriends.append(match)
+//            } else {
+//                fatalError("Missing \(user.wrappedName)")
+//            }
+//        }
+//
+//        return userFriends
+//    }
+    
+    init(user: User, friends: [User]) {
         self.user = user
         self.friends = friends
-        self.users = users
+//        self.users = users
     }
 }
 
-struct DetailView_Previews: PreviewProvider {
-    static let friend = Friend(id: "b", name: "John")
-    static let user = User(id: "a",
-                           isActive: false,
-                           name: "Biff",
-                           age: 39,
-                           company: "ABC Company",
-                           email: "biff@abc.com",
-                           about: "So many things",
-                           registered: "2021-05-01",
-                           tags: ["abc"],
-                           friends: [friend]
-                           )
-    
-    static var previews: some View {
-        DetailView(user: user, friends: [user], users: [user])
-    }
-}
+//struct DetailView_Previews: PreviewProvider {
+//    static let friend = Friend(id: "b", name: "John")
+//    static let user = User(id: "a",
+//                           isActive: false,
+//                           name: "Biff",
+//                           age: 39,
+//                           company: "ABC Company",
+//                           email: "biff@abc.com",
+//                           about: "So many things",
+//                           registered: "2021-05-01",
+//                           tags: ["abc"],
+//                           friends: [friend]
+//                           )
+//
+//    static var previews: some View {
+//        DetailView(user: user, friends: [user], users: [user])
+//    }
+//}

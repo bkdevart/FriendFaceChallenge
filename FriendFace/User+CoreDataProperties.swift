@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  FriendFace
 //
-//  Created by Brandon Knox on 5/4/21.
+//  Created by Brandon Knox on 5/5/21.
 //
 //
 
@@ -20,35 +20,35 @@ extension User {
     @NSManaged public var age: Int16
     @NSManaged public var company: String?
     @NSManaged public var email: String?
-    @NSManaged public var id: String?
+    @NSManaged public var id: UUID?
     @NSManaged public var isActive: Bool
     @NSManaged public var name: String?
     @NSManaged public var registered: String?
-    @NSManaged public var tags: NSObject?
+    @NSManaged public var tags: [String]?
     @NSManaged public var friends: NSSet?
-
+    
     public var wrappedAbout: String {
         about ?? "Unknown about"
     }
 
     public var wrappedCompany: String {
-        about ?? "Unknown company"
+        company ?? "Unknown company"
     }
 
     public var wrappedEmail: String {
-        about ?? "Unknown email"
+        email ?? "Unknown email"
     }
 
     public var wrappedName: String {
-        about ?? "Unknown name"
+        name ?? "Unknown name"
     }
 
     public var wrappedRegistered: String {
-        about ?? "Unknown registered"
+        registered ?? "Unknown registered"
     }
 
-    public var wrappedTags: String {
-        about ?? "Unknown tags"
+    public var wrappedTags: [String] {
+        tags ?? ["Unknown tags"]
     }
 
     public var friendsArray: [Friend] {
