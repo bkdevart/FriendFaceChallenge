@@ -12,21 +12,31 @@ struct DetailView: View {
     @FetchRequest(entity: User.entity(), sortDescriptors: []) var users: FetchedResults<User>
     
     let user: User
-    let friends: [User]
+//    let friends: [User]
 //    let users: [User]  // make moc?
     
     var body: some View {
         VStack {
-            Text(user.wrappedName)
-                .font(.largeTitle)
-                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-            Text(user.wrappedCompany)
-                .foregroundColor(.secondary)
-            Text("Age: " + String(user.age))
-                .font(.caption)
-            Text(user.wrappedAbout)
-            Text("Member since \(user.wrappedRegistered)")
-                .font(.footnote)
+            List(users, id: \.id) { user in
+                VStack(alignment: .leading) {
+                    Text(user.wrappedName)
+                        .font(.largeTitle)
+                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    Text(user.wrappedCompany)
+                        .foregroundColor(.secondary)
+                    Text("Age: " + String(user.age))
+                        .font(.caption)
+                    Text(user.wrappedAbout)
+                    Text("Member since \(user.wrappedRegistered)")
+                        .font(.footnote)
+                    Text("Friends:")
+                    ForEach(user.friendsArray, id: \.self) { friend in
+                        Text(friend.wrappedFriendName)
+                    }
+                }
+            }
+            
+
 //            NavigationView {
 //                List(friends, id: \.id) { item in
 //                    // need to look up id off of User and pass to DetailViews
@@ -59,9 +69,9 @@ struct DetailView: View {
 //        return userFriends
 //    }
     
-    init(user: User, friends: [User]) {
+    init(user: User) {
         self.user = user
-        self.friends = friends
+//        self.friends = friends
 //        self.users = users
     }
 }

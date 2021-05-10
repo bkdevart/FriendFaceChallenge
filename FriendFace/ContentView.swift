@@ -15,13 +15,12 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             
-            List(users, id: \.id) { item in
-                NavigationLink(destination: DetailView(user: item,
-                                                       friends: findFriends(friends: item.friendsArray))) {
+            List(users, id: \.id) { user in
+                NavigationLink(destination: DetailView(user: user)) {
                     VStack(alignment: .leading) {
-                        Text(item.wrappedName)
+                        Text(user.wrappedName)
                             .font(.headline)
-                        Text(item.wrappedCompany)
+                        Text(user.wrappedCompany)
                             .foregroundColor(.secondary)
                     }
                 }

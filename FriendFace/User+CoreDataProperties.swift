@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  FriendFace
 //
-//  Created by Brandon Knox on 5/5/21.
+//  Created by Brandon Knox on 5/6/21.
 //
 //
 
@@ -11,7 +11,7 @@ import CoreData
 
 
 extension User {
-
+    
     @nonobjc public class func fetchRequest() -> NSFetchRequest<User> {
         return NSFetchRequest<User>(entityName: "User")
     }
@@ -26,7 +26,7 @@ extension User {
     @NSManaged public var registered: String?
     @NSManaged public var tags: [String]?
     @NSManaged public var friends: NSSet?
-    
+
     public var wrappedAbout: String {
         about ?? "Unknown about"
     }
@@ -55,9 +55,10 @@ extension User {
         let set = friends as? Set<Friend> ?? []
         
         return set.sorted {
-            $0.wrappedName < $1.wrappedName
+            $0.wrappedFriendName < $1.wrappedFriendName
         }
     }
+    
 }
 
 // MARK: Generated accessors for friends

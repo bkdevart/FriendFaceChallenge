@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20E241" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Friend" representedClassName="Friend" parentEntity="User" syncable="YES">
+    <entity name="Friend" representedClassName="Friend" syncable="YES">
         <attribute name="friendId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="friendName" optional="YES" attributeType="String"/>
-        <relationship name="user" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="friends" inverseEntity="User">
-            <userInfo>
-                <entry key="key" value="id"/>
-            </userInfo>
-        </relationship>
+        <relationship name="user" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="friends" inverseEntity="User"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
-                <constraint value="friendName"/>
+                <constraint value="friendId"/>
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
@@ -23,12 +19,8 @@
         <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="registered" optional="YES" attributeType="String"/>
-        <attribute name="tags" optional="YES" attributeType="String" customClassName="Array&lt;any&gt;"/>
-        <relationship name="friends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Friend" inverseName="user" inverseEntity="Friend">
-            <userInfo>
-                <entry key="key" value="friends"/>
-            </userInfo>
-        </relationship>
+        <attribute name="tags" optional="YES" attributeType="String"/>
+        <relationship name="friends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Friend" inverseName="user" inverseEntity="Friend"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="id"/>
@@ -36,7 +28,7 @@
         </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="Friend" positionX="-54" positionY="0" width="128" height="74"/>
-        <element name="User" positionX="-63" positionY="-9" width="128" height="179"/>
+        <element name="Friend" positionX="-54" positionY="63" width="128" height="74"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="179"/>
     </elements>
 </model>
