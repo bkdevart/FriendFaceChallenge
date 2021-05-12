@@ -27,7 +27,7 @@ struct DetailView: View {
                     Text("Age: " + String(user.age))
                         .font(.caption)
                     Text(user.wrappedAbout)
-                    Text("Member since \(user.wrappedRegistered)")
+                    Text("Member since \(user.formattedRegisteredDate)")
                         .font(.footnote)
                     Text("Friends:")
                     ForEach(user.friendsArray, id: \.self) { friend in

@@ -31,6 +31,12 @@ struct ContentView: View {
     }
     
     func loadData() {
+        var loadedUsers = [UserStruct]()
+        
+        if !users.isEmpty {
+            return
+        }
+        
         guard let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json") else {
             print("Invalid URL")
             return
@@ -40,9 +46,13 @@ struct ContentView: View {
 
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
-                if let decodedResponse = try?JSONDecoder().decode([User].self, from: data) {
+                // crashes here
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                
+                if let decodedResponse = try?decoder.decode([UserStruct].self, from: data) {
                     DispatchQueue.main.async {
-                        self.users = decodedResponse
+                        loadedUsers = decodedResponse
                     }
                     print("Results returned")
                     return

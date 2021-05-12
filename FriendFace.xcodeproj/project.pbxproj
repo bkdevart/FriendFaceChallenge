@@ -10,6 +10,8 @@
 		CA2B9CBC2640FC5C001AF0BB /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2B9CB82640FC5C001AF0BB /* User+CoreDataClass.swift */; };
 		CA2B9CBE2640FC5C001AF0BB /* Friend+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2B9CBA2640FC5C001AF0BB /* Friend+CoreDataClass.swift */; };
 		CA2B9CBF2640FC5C001AF0BB /* Friend+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2B9CBB2640FC5C001AF0BB /* Friend+CoreDataProperties.swift */; };
+		CA791709264B5346007BCD4C /* UserStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791708264B5346007BCD4C /* UserStruct.swift */; };
+		CA79170B264B538A007BCD4C /* FriendStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA79170A264B538A007BCD4C /* FriendStruct.swift */; };
 		CAC8DC95263CF93A001B8818 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC8DC94263CF93A001B8818 /* AppDelegate.swift */; };
 		CAC8DC97263CF93A001B8818 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC8DC96263CF93A001B8818 /* SceneDelegate.swift */; };
 		CAC8DC99263CF93A001B8818 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC8DC98263CF93A001B8818 /* ContentView.swift */; };
@@ -26,6 +28,8 @@
 		CA2B9CB92640FC5C001AF0BB /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CA2B9CBA2640FC5C001AF0BB /* Friend+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Friend+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CA2B9CBB2640FC5C001AF0BB /* Friend+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Friend+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CA791708264B5346007BCD4C /* UserStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStruct.swift; sourceTree = "<group>"; };
+		CA79170A264B538A007BCD4C /* FriendStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendStruct.swift; sourceTree = "<group>"; };
 		CAC8DC91263CF93A001B8818 /* FriendFace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendFace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAC8DC94263CF93A001B8818 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAC8DC96263CF93A001B8818 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +79,8 @@
 				CAC8DC94263CF93A001B8818 /* AppDelegate.swift */,
 				CAC8DC96263CF93A001B8818 /* SceneDelegate.swift */,
 				CAC8DC98263CF93A001B8818 /* ContentView.swift */,
+				CA791708264B5346007BCD4C /* UserStruct.swift */,
+				CA79170A264B538A007BCD4C /* FriendStruct.swift */,
 				CAC8DCAB263E0593001B8818 /* DetailView.swift */,
 				CAC8DC9D263CF93B001B8818 /* Assets.xcassets */,
 				CAC8DCA2263CF93B001B8818 /* LaunchScreen.storyboard */,
@@ -172,6 +178,8 @@
 				CAC8DC99263CF93A001B8818 /* ContentView.swift in Sources */,
 				CACB7AB1264384CD00530ED0 /* User+CoreDataProperties.swift in Sources */,
 				CA2B9CBC2640FC5C001AF0BB /* User+CoreDataClass.swift in Sources */,
+				CA79170B264B538A007BCD4C /* FriendStruct.swift in Sources */,
+				CA791709264B5346007BCD4C /* UserStruct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

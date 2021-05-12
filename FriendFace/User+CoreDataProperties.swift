@@ -20,13 +20,17 @@ extension User {
     @NSManaged public var age: Int16
     @NSManaged public var company: String?
     @NSManaged public var email: String?
-    @NSManaged public var id: UUID?
+    @NSManaged public var id: String?
     @NSManaged public var isActive: Bool
     @NSManaged public var name: String?
-    @NSManaged public var registered: String?
+    @NSManaged public var registered: Date?
     @NSManaged public var tags: [String]?
     @NSManaged public var friends: NSSet?
 
+    public var wrappedId: String {
+        id ?? "Unknown id"
+    }
+    
     public var wrappedAbout: String {
         about ?? "Unknown about"
     }
@@ -43,14 +47,20 @@ extension User {
         name ?? "Unknown name"
     }
 
-    public var wrappedRegistered: String {
-        registered ?? "Unknown registered"
-    }
-
     public var wrappedTags: [String] {
         tags ?? ["Unknown tags"]
     }
 
+    var formattedRegisteredDate: String {
+        if let registeredDate = registered {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .long
+            return formatter.string(from: registeredDate)
+        } else {
+            return "N/A"
+        }
+    }
+    
     public var friendsArray: [Friend] {
         let set = friends as? Set<Friend> ?? []
         
