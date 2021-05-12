@@ -30,8 +30,8 @@ struct DetailView: View {
                     Text("Member since \(user.formattedRegisteredDate)")
                         .font(.footnote)
                     Text("Friends:")
-                    ForEach(user.friendsArray, id: \.self) { friend in
-                        Text(friend.wrappedFriendName)
+//                    ForEach(user.friendsArray, id: \.self) { friend in
+//                        Text(friend.wrappedFriendName)
                     }
                 }
             }
@@ -50,7 +50,7 @@ struct DetailView: View {
 //                }
 //                .navigationTitle("\(user.name)'s friends")  // pull first name only
 //            }
-        }
+//        }
         .padding(.horizontal)
     }
     

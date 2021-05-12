@@ -24,9 +24,10 @@ struct ContentView: View {
                     }
                 }
             }
+            .onAppear(perform: loadData)
             .navigationTitle("FriendFace Home")
         }
-        .onAppear(perform: loadData)
+        
     }
     
     func loadData() {

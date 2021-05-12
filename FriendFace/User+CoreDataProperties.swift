@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  FriendFace
 //
-//  Created by Brandon Knox on 5/11/21.
+//  Created by Brandon Knox on 5/12/21.
 //
 //
 
@@ -26,7 +26,7 @@ extension User {
     @NSManaged public var registered: Date?
     @NSManaged public var tags: String?
     @NSManaged public var friends: NSSet?
-
+    
     public var wrappedId: String {
         id ?? "Unknown id"
     }
@@ -60,9 +60,13 @@ extension User {
             return "N/A"
         }
     }
-    
-    
-    
+
+    public var friendsArray: [User] {
+        let set = friends as? Set<User> ?? []
+        
+        return set.sorted { $0.wrappedName < $1.wrappedName }
+    }
+
 }
 
 // MARK: Generated accessors for friends
@@ -79,7 +83,7 @@ extension User {
 
     @objc(removeFriends:)
     @NSManaged public func removeFromFriends(_ values: NSSet)
-
+    
 }
 
 extension User : Identifiable {
