@@ -14,8 +14,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            
-            List(users, id: \.id) { user in
+            List(users) { user in
                 NavigationLink(destination: DetailView(user: user)) {
                     VStack(alignment: .leading) {
                         Text(user.wrappedName)
@@ -53,6 +52,39 @@ struct ContentView: View {
                 if let decodedResponse = try?decoder.decode([UserStruct].self, from: data) {
                     DispatchQueue.main.async {
                         loadedUsers = decodedResponse
+                        
+                        var tmpUsers = [User]()
+
+                        for usr in loadedUsers {
+                            let rec = User(context: moc)
+                            rec.name = usr.name
+                            rec.id = usr.id
+                            rec.isActive = usr.isActive
+                            rec.age = Int16(usr.age)
+                            rec.company = usr.company
+                            rec.email = usr.email
+                            rec.about = usr.about
+//                            rec.address = usr.address
+                            rec.registered = usr.registered
+                            rec.tags = usr.tags.joined(separator: ", ")
+                            
+                            tmpUsers.append(rec)
+                        }
+                        
+                        for i in 0..<loadedUsers.count {
+                            for friend in loadedUsers[i].friends {
+                                if let newFriend = tmpUsers.first(where: { $0.id == friend.id }) {
+                                    tmpUsers[i].addToFriends(newFriend)
+                                }
+                            }
+                        }
+
+                        do {
+                            try moc.save()
+                        }
+                        catch let error {
+                            print("Could not save data: \(error.localizedDescription)")
+                        }
                     }
                     print("Results returned")
                     return
@@ -71,7 +103,7 @@ struct ContentView: View {
             if let match = users.first(where: { $0.id == user.id}) {
                 userFriends.append(match)
             } else {
-                fatalError("Missing \(user.wrappedName)")
+                fatalError("Missing \(user.name)")
             }
         }
         

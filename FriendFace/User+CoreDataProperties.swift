@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  FriendFace
 //
-//  Created by Brandon Knox on 5/6/21.
+//  Created by Brandon Knox on 5/11/21.
 //
 //
 
@@ -11,7 +11,7 @@ import CoreData
 
 
 extension User {
-    
+
     @nonobjc public class func fetchRequest() -> NSFetchRequest<User> {
         return NSFetchRequest<User>(entityName: "User")
     }
@@ -24,13 +24,13 @@ extension User {
     @NSManaged public var isActive: Bool
     @NSManaged public var name: String?
     @NSManaged public var registered: Date?
-    @NSManaged public var tags: [String]?
+    @NSManaged public var tags: String?
     @NSManaged public var friends: NSSet?
 
     public var wrappedId: String {
         id ?? "Unknown id"
     }
-    
+
     public var wrappedAbout: String {
         about ?? "Unknown about"
     }
@@ -47,8 +47,8 @@ extension User {
         name ?? "Unknown name"
     }
 
-    public var wrappedTags: [String] {
-        tags ?? ["Unknown tags"]
+    public var wrappedTags: String {
+        tags ?? "Unknown tags"
     }
 
     var formattedRegisteredDate: String {
@@ -61,13 +61,7 @@ extension User {
         }
     }
     
-    public var friendsArray: [Friend] {
-        let set = friends as? Set<Friend> ?? []
-        
-        return set.sorted {
-            $0.wrappedFriendName < $1.wrappedFriendName
-        }
-    }
+    
     
 }
 
@@ -75,10 +69,10 @@ extension User {
 extension User {
 
     @objc(addFriendsObject:)
-    @NSManaged public func addToFriends(_ value: Friend)
+    @NSManaged public func addToFriends(_ value: User)
 
     @objc(removeFriendsObject:)
-    @NSManaged public func removeFromFriends(_ value: Friend)
+    @NSManaged public func removeFromFriends(_ value: User)
 
     @objc(addFriends:)
     @NSManaged public func addToFriends(_ values: NSSet)

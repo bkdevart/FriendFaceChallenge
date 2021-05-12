@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FriendStruct: Codable {
+struct Friend: Codable {
     let id: String
     let name: String
 }

@@ -18,5 +18,5 @@ struct UserStruct: Codable, Identifiable {
     let about: String
     let registered: Date?
     let tags: [String]
-    let friends: [FriendStruct]
+    let friends: [Friend]
 }

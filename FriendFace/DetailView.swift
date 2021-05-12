@@ -17,11 +17,11 @@ struct DetailView: View {
     
     var body: some View {
         VStack {
-            List(users, id: \.id) { user in
+            List(users) { user in
                 VStack(alignment: .leading) {
                     Text(user.wrappedName)
                         .font(.largeTitle)
-                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        .fontWeight(.bold)
                     Text(user.wrappedCompany)
                         .foregroundColor(.secondary)
                     Text("Age: " + String(user.age))
