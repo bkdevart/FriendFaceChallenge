@@ -36,6 +36,7 @@
 		CAC8DCA3263CF93B001B8818 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CAC8DCA5263CF93B001B8818 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAC8DCAB263E0593001B8818 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		CADD8FD1264CA30C00593447 /* FriendFace 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "FriendFace 2.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -374,9 +375,10 @@
 		CAC8DC9A263CF93A001B8818 /* FriendFace.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				CADD8FD1264CA30C00593447 /* FriendFace 2.xcdatamodel */,
 				CAC8DC9B263CF93A001B8818 /* FriendFace.xcdatamodel */,
 			);
-			currentVersion = CAC8DC9B263CF93A001B8818 /* FriendFace.xcdatamodel */;
+			currentVersion = CADD8FD1264CA30C00593447 /* FriendFace 2.xcdatamodel */;
 			path = FriendFace.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
